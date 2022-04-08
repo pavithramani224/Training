@@ -4,7 +4,7 @@ public class ExceptionHandling {
 	public void usingArrayIndexExpection(String[] args)
 	{
 		try {
-			System.out.println(args[5]);
+			System.out.println(args[2]);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			// TODO Auto-generated catch block
 			System.out.println("method requires three values to be passed a,b,c");
