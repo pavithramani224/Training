@@ -22,10 +22,10 @@ public class Application {
 		//System.out.println(ram.getRollNumber());
 		//System.out.println(ram.getFirstName());
 		//System.out.println(ram.getMarkScored());
-		StudentServices service = new StudentServices(ram);
+		StudentServices service = new StudentServices();
 		
 		System.out.println(service.sendDetials());
-		StudentServices service1=new StudentServices(ram);
+		StudentServices service1=new StudentServices();
 		try {
 			System.out.println(service1.findRank());
 		} catch (Throwable e) {
@@ -33,6 +33,9 @@ public class Application {
 			System.err.println("name is not passed");
 			e.printStackTrace();
 		}
+		Student stud = new Student();
+		stud.setMarkScored(98);
+		
 		ExceptionHandling exhandling = new ExceptionHandling();
 		exhandling.usingArrayIndexExpection(args);
 		exhandling.usingNumberForamtExcpetion("45");
