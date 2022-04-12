@@ -9,6 +9,7 @@ public class Appointment {
 	public Appointment() {
 		super();
 		// TODO Auto-generated constructor stub
+		lists=new HashMap<>();
 	}
 	public Appointment(int tokenNumber, HashMap<Doctor, Set<Patient>> lists) {
 		super();
