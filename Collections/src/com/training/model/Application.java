@@ -21,10 +21,11 @@ public static void main(String[] args) {
 		Book html = new Book(104,"html","anu",750);
 		Book python = new Book(105,"python","sutha",1450);
 		
+		
 		crudRespository service = new BookService();
 		
 		System.out.println("Id added:"+service.add(java));
-	    service.add(java);
+	   // service.add(java);
 		service.add(spring);
 		service.add(maven);
 		service.add(html);
