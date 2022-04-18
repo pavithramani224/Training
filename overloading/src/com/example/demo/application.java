@@ -26,10 +26,6 @@ public class application {
 		
 		int frm = sc.nextInt();
 		System.out.println("amt:"+obj.convert(amount,frm));
-		
-		
 		sc.close();
-
+		}
 	}
-
-}
