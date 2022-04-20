@@ -8,8 +8,10 @@ public class application1 {
 	System.out.println("Employee Salary:" +abu.getEmployeeSalary());
 	System.out.println("Employee Shift Start:" +abu.getShiftStart());
 	System.out.println("Employee Shift End:" +abu.getShiftEnd());
-	System.out.println("Employee Updated salary:"+calculateBonus(abu));
+System.out.println();
 	
 }
+
+	
 }
 	
