@@ -41,6 +41,31 @@ public class BookService {
 		
 		return bookList;
 	}
+	public boolean writeToStream(File file,Book book) {
+		boolean result=false;
+		try(ObjectOutputStream outputStream=
+				new ObjectOutputStream(new FileOutputStream(file))){
+			outputStream.writeObject(book);
+			result=true;
+			
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+		
+	}
+	public Object readFromStream(File file) {
+		Object obj=null;
+		try(ObjectInputStream inStream =
+				new ObjectInputStream(new FileInputStream(file))){
+			obj=inStream.readObject();
+			
+		}catch(IOException |ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return obj;
+		
+	}
 	
 
 }

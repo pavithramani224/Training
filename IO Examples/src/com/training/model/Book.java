@@ -1,11 +1,32 @@
 package com.training.model;
 
-public class Book implements Comparable<Book> {
+import java.io.Serializable;
+
+public class Book implements Comparable<Book>,Serializable {
+	private static final long serialVersionID=1212;
 	private int bookNumber;
 	private String bookName;
 	private String author;
 	private double price;
+	private double discount;
 	
+	public double getDiscount() {
+		return discount;
+	}
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+	public static long getSerialversionid() {
+		return serialVersionID;
+	}
+	public Book(int bookNumber, String bookName, String author, double price, double discount) {
+		super();
+		this.bookNumber = bookNumber;
+		this.bookName = bookName;
+		this.author = author;
+		this.price = price;
+		this.discount = discount;
+	}
 	@Override
 	public String toString() {
 		return bookNumber +","+  bookName + ","+ author + "," +  price;
