@@ -3,17 +3,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
-  <artifactId>jdbc_with_maven</artifactId>
+  <artifactId>mavan_jdbc_bank</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>jdbc_with_maven</name>
+  <name>mavan_jdbc_bank</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -23,7 +21,7 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
+       <dependency>
     <groupId>com.oracle.database.jdbc</groupId>
     <artifactId>ojdbc8</artifactId>
     <version>21.5.0.0</version>
@@ -34,5 +32,4 @@
     <version>42.3.4</version>
 </dependency>
   </dependencies>
-  
 </project>
