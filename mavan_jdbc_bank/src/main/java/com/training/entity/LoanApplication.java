@@ -1,15 +1,11 @@
 package com.training.entity;
 
-public class LoanApplication extends Customer {
+public class LoanApplication {
 	private int applicationNumber;
 	private Customer customer;
 	private double loanAmount;
 	public LoanApplication() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-	public LoanApplication(int customerId, String customerName, long phonenumber, double creditScore) {
-		super(customerId, customerName, phonenumber, creditScore);
 		// TODO Auto-generated constructor stub
 	}
 	public LoanApplication(int applicationNumber, Customer customer, double loanAmount) {
@@ -41,6 +37,8 @@ public class LoanApplication extends Customer {
 		return "LoanApplication [applicationNumber=" + applicationNumber + ", customer=" + customer + ", loanAmount="
 				+ loanAmount + "]";
 	}
+	
+	
 	
 	
 

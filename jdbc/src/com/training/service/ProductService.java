@@ -85,6 +85,67 @@ public int update(String productName, double newprice) {
 	return  rowsUpdated;
 	
 }
-
-
+public void usingtxn(Product prod1, Product prod2) {
+	String sql="insert into pavi1_product values(?,?,?)";
+	try(PreparedStatement pstmt = con.prepareStatement(sql)){
+		con.setAutoCommit(false);
+		pstmt.setInt(1, prod1.getProductId());
+		pstmt.setString(2, prod1.getProductName());
+		pstmt.setDouble(3,prod1.getPrice());
+		
+		
+		int rowAdded = pstmt.executeUpdate();
+		pstmt.setInt(1, prod2.getProductId());
+		pstmt.setString(2, prod2.getProductName());
+		pstmt.setDouble(3,prod2.getPrice());
+		
+		int rowAdded2 = pstmt.executeUpdate();
+		if(prod2.getPrice()>prod1.getPrice()) {
+			con.commit();
+		}else {
+			con.rollback();
+		}
+		
+		System.out.println("rowadded:"+rowAdded +","+rowAdded2);
+		}catch(Exception e) {
+			e.printStackTrace();
 }
+}
+public void usingtxnwithCatchBlock(Product prod1,Invoice invoice) {
+	String addprodsql="insert into pavi1_product values(?,?,?)";
+	String addinvoicesql="insert into pavi2_invoice values(?,?,?,?)";
+	try(
+		PreparedStatement prodpstmt = con.prepareStatement(addprodsql);
+		PreparedStatement invpstmt = con.prepareStatement(addinvoicesql)
+		)
+		{
+		con.setAutoCommit(false);
+		
+		prodpstmt.setInt(1, prod1.getProductId());
+		prodpstmt.setString(2, prod1.getProductName());
+		prodpstmt.setDouble(3,prod1.getPrice());
+		
+		
+		int rowAdded = prodpstmt.executeUpdate();
+		
+		invpstmt.setInt(1, invoice.getInvoiceNumber());
+		invpstmt.setString(2, invoice.getCustomerName());
+		invpstmt.setInt(3,invoice.getQuantity());
+		invpstmt.setInt(4, invoice.getProductRef());
+		
+		int rowadded1 = invpstmt.executeUpdate();
+		con.commit();
+		
+		}
+	catch(Exception e) {
+			e.printStackTrace();
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+}
+}
+}
+
