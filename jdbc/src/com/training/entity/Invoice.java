@@ -1,4 +1,4 @@
-package com.training.service;
+package com.training.entity;
 
 public class Invoice {
 	private int invoiceNumber;

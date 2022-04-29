@@ -2,8 +2,8 @@ package com.training.model;
 import java.sql.*;
 import java.util.Optional;
 
+import com.training.entity.Invoice;
 import com.training.entity.Product;
-import com.training.service.Invoice;
 import com.training.service.ProductService;
 public class Application {
 
