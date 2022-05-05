@@ -36,9 +36,14 @@ public class StudentService {
 		return this.studentList.removeIf(e->e.getRollNumber()==id);
 		
 	}
-	public Student update(Student oldvalue,Student newvalue) {
-		int idxpos = this.studentList.indexOf(oldvalue);
-		return this.studentList.set(idxpos, newvalue);
-	}
+	
 
+	public Student update(int id,Student newValue) {
+		
+		int idxPos = this.studentList.indexOf(findById(id).get());
+			
+		 this.studentList.set(idxPos, newValue);
+			
+		 return newValue;
+		}
 }
