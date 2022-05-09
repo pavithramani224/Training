@@ -3,10 +3,10 @@ package com.training;
 import java.util.*;
 public class ProductService {
 	private Set<Product> products;
-	public Set<Product> getTopThree(){
+	public boolean getTopThree(){
 		Iterator<Product> itr = this.products.iterator();
 		int count=0;
-		Set<Product> newSet
+		return true;
 	}
 	public ProductService() {
 		super();
