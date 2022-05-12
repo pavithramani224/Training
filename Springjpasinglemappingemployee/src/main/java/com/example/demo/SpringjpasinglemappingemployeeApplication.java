@@ -20,6 +20,7 @@ public class SpringjpasinglemappingemployeeApplication {
 		SpringApplication.run(SpringjpasinglemappingemployeeApplication.class, args);
 		
 		EmployeeService service = ctx.getBean(EmployeeService.class);
+		
 		Employee pavi =ctx.getBean(Employee.class);
 		
          Employee added = service.add(pavi);
@@ -40,7 +41,12 @@ public class SpringjpasinglemappingemployeeApplication {
 		
 		System.out.println("find by skillset");
 		service.findBySkillSet("java").forEach(System.out::println);
+	
+		System.out.println("find skillset and location using query");
+		service.getBySkillSetAndLoc("java", "perambalur").forEach(System.out::println);;
 		
+		System.out.println("find by skill or location using method");
+		service.getBySkillSetOrLocation("html", "chennai").forEach(System.out::println);
 	}
 	@Bean
 	public Employee pavi(){

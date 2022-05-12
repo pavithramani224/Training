@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Employee;
@@ -22,6 +23,7 @@ public class EmployeeService {
 	public List<Employee> findAll(){
 		return repo.findAll();
 		
+		
 	}
 	public Employee add(Employee employee) {
 		return repo.save(employee);
@@ -38,4 +40,14 @@ public class EmployeeService {
 	public List<Employee> findBySkillSet(String skillset){
 		return this.repo.findBySkillSet(skillset);
 	}
+	public List<Employee> getBySkillSetAndLoc(String skill,  String loc){
+		return this.repo.findBySkillSetAndLocation(skill, loc);
+		
+		
+	}
+
+	public List<Employee> getBySkillSetOrLocation(String skill,String loc){
+		return this.repo.findBySkillSetOrLocation(skill, loc);
+	}
+
 }

@@ -8,10 +8,10 @@
 </head>
 <body>
 <ol>
-<li><a href="http://localhost:8080/product">Add</a></li>
-<li><a href="http://localhost:8080/product/srch">find</a></li>
-<li><a href="http://localhost:8080/mvc/home">All Product</a></li>
-<li><a href="http://localhost:8080/product/delete">Delete</a></li>
+<li><a href="product">Add</a></li>
+<li><a href="product/srch">find</a></li>
+<li><a href="mvc/home">All Product</a></li>
+<li><a href="product/delete">Delete</a></li>
 </ol>
 
 </body>
