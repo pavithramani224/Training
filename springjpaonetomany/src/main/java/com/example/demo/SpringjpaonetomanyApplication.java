@@ -20,10 +20,8 @@ public class SpringjpaonetomanyApplication {
 				SpringApplication.run(SpringjpaonetomanyApplication.class, args);
 		Doctorutils obj = ctx.getBean(Doctorutils.class);
 		
-//		Utils obj1 = ctx.getBean(Utils.class);
-		
 	
-		obj.create();
+		//obj.create();
 		obj.findAll();
 	}
 

@@ -39,14 +39,13 @@ import lombok.NoArgsConstructor;
 		@Column(name="phone_number")
 		long phoneNumber;
 		
-		//@OneToMany(targetEntity = Patient.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-		
-		//@JoinColumn(name = "doctor_ref", referencedColumnName="doctor_id")
+		@OneToMany(targetEntity = Patient.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+		@JoinColumn(name = "doctor_ref", referencedColumnName="doctor_id")
 		
 	
 		
 		
-		@OneToMany(mappedBy = "doctor",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+		
 		List<Patient> patientList; //one to many
 	}
 
