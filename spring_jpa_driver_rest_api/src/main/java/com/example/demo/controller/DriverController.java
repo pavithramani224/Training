@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,7 +51,7 @@ public class DriverController {
 		
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(entity.getDriverid())
+				.path("/{id}").buildAndExpand(entity.getDriverId())
 				.toUri();
 
 				
@@ -58,18 +59,51 @@ public class DriverController {
 	
 	}
 
-	@DeleteMapping(path="/drivers")
-	public RequestEntity<Object> remove(@RequestBody Driver entity) {
-
-		Driver result = this.service.remove(entity);
-		if(result!=null)
-		{
-			return RequestEntity.status(204).build();
-		}else {
-			return RequestEntity.ok("no record matching");
-		}
+//	
+	@DeleteMapping(path="/drivers/{id}")  
+	public ResponseEntity<String> deleteById(@PathVariable int id){
+		
+		this.service.deleteById(id);
+		return ResponseEntity.status(204).body("One Record Deleted "+id);
+		
 	}
+	
+	
+	
+	@GetMapping(path="/drivers/srch/phone/{mobileNumber}")
+	public List<Driver> getDriverByMobileNumber(@PathVariable("mobileNumber") long id){
+		return this.service.findByMobileNumber(id);
+		
+	}
+	
+	
+	@PutMapping(path="/drivers/{id}/{rating}")
+	public ResponseEntity<Integer> updateRating(@PathVariable("id")int id,@PathVariable("rating")double updatedRating) {
+		int update=this.service.updateRating(id, updatedRating);
+		return ResponseEntity.ok().body(update);
+	}
+	
+	
+	
+	@GetMapping(path="/drivers/srch/rating/{rating}")
+	public List<Driver> getDriverByRating(@PathVariable("rating") double rating){
+		return this.service.findByDriverRating(rating);
+	}
+	
+	@GetMapping(path="/drivers/srch/drivername/{driverName}")
+	public List<Driver> findByDriverName(@PathVariable("driverName") String name){
+		return this.service.findByDriverName(name);
+	}
+	
+	@GetMapping(path="/drivers/sort/{propName}")
+	public List<Driver> sortByDrivername(@PathVariable("propName") String name){
+		return this.service.sortedList(name);
+	}
+	
+	
 }
+
+	
 	
 	
 

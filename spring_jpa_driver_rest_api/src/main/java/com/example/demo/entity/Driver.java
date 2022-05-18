@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 public class Driver {
 	@Id
 	@Column(name="driver_id")
-	private int driverid;
+	private int driverId;
 	
 	@Column(name="driver_name")
 	private String driverName;

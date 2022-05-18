@@ -10,7 +10,11 @@ import org.springframework.context.annotation.Bean;
 import com.example.demo.entity.Driver;
 import com.example.demo.ifaces.DriverRepository;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+
 @SpringBootApplication
+@OpenAPIDefinition(info=@Info(title="Driver Serice API", version = "1.0"))
 public class SpringJpaDriverRestApiApplication {
 
 	public static void main(String[] args) {
@@ -29,7 +33,8 @@ public class SpringJpaDriverRestApiApplication {
 			public void run(String... args) throws Exception {
 				// TODO Auto-generated method stub
 				repo.save(new Driver(182,"anu",9889899999l,4.1));
-				
+				repo.save(new Driver(183,"anju",98898999584l,3.8));
+
 			}
 			
 		};
